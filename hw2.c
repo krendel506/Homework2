@@ -4,20 +4,14 @@
 
 void f_print(float y[], int size);
 float calculating_y(float y[], int *k, float x);
-
+void input(float *x, float *e);
 int main() {
     float x, e = 0;
     float y[15];
     int k = -1;
 
     //input
-    printf("Enter x: ");
-    scanf("%f", &x);
-    do {
-        printf("Enter e: ");
-        scanf("%f", &e);
-    } while (e <= 0 || e >= 1);
-
+    input(&x,&e);
     //calculation
     do {
         k++;
@@ -29,6 +23,14 @@ int main() {
     return 0;
 }
 
+void input(float *x, float *e){
+    printf("Enter x: ");
+    scanf("%f",x);
+    do{
+        printf("Enter e: ");
+        scanf("%f",e);
+    }while(*e <=0 || *e >=1);
+}
 // Function to calculate each y[k]
 float calculating_y(float y[], int *k, float x) {
     if (*k == 0) {
